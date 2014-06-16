@@ -1,0 +1,39 @@
+<div>
+	<section class="well well-sm content">
+		<h2>My Debts</h2>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Amount</th>
+						<th>Lender</th>
+						<th>Subject</th>
+						<th>Place</th>
+						<th>Since</th>
+						<th>Until</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="payment in payments">
+						<td>{{payment.amount}}</td>
+						<td>{{payment.lender.firstName}} {{payment.lender.lastName}}</td>
+						<td>{{payment.subject}}</td>
+						<td>{{payment.location}}</td>
+						<td>{{payment.beginning}}</td>
+						<td>{{payment.deadLine}}</td>
+
+						<td><a data-ng-click="payWithCreditCard(payment.id)"
+							class="btn-link"> <img src="../images/credit-cards-icon-42.jpeg" />
+						
+						</a> <a type="submit" data-ng-click="payWithPayPal(payment.id)"
+							class="btn-link"> <img src="../images/pp_cc_mark_37x23.png" />
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</div>
+
+<div data-ng-include="'views/paypal-confirmation-dialog.html'"></div>
+<div data-ng-include="'views/ceca-confirmation-dialog.html'"></div>

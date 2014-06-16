@@ -1,0 +1,51 @@
+<div>
+	<section class="row">
+		<div class="col-md-6">
+			<button class="btn btn-primary btn-lg" data-toggle="modal"
+				data-target="#savePaymentModal" data-ng-click="clear()">
+				<span class="glyphicon glyphicon-flash"></span>Charge
+			</button>
+
+			<div data-ng-include="'views/charges-dialog.html'"></div>
+		</div>
+	</section>
+
+
+	<section class="well well-sm content">
+		<h2>My charges</h2>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Amount</th>
+						<th>Borrower</th>
+						<th>Subject</th>
+						<th>Place</th>
+						<th>Since</th>
+						<th>Until</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="payment in payments">
+						<td>{{payment.amount}}</td>
+						<td>{{payment.borrower.firstName}} {{payment.borrower.lastName}}</td>
+						<td>{{payment.subject}}</td>
+						<td>{{payment.location}}</td>
+						<td>{{payment.beginning}}</td>
+						<td>{{payment.deadLine}}</td>
+						
+						<td>
+<!-- 							<button type="submit" data-ng-click="update(payment.id)" class="btn">
+								<span class="glyphicon glyphicon-pencil"></span> Update
+							</button> -->
+							<button type="submit" data-ng-click="delete(payment.id)"
+								class="btn btn-primary">
+								<span class="glyphicon glyphicon-remove-circle"></span> Cancel
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</div>

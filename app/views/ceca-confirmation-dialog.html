@@ -1,0 +1,48 @@
+<div class="modal fade" id="cecaConfirmationModal" tabindex="-1"
+		data-role="dialog" data-aria-labelledby="myPaymentLabel" data-aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							data-aria-hidden="true" data-ng-click="clear()">&times;</button>
+						<h4 class="modal-title" id="myPaymentLabel">Redirecting to Cajastur TPV</h4>
+					</div>
+					<div class="modal-body">
+					
+					<p class="lead"> You are leaving our web site.</p>
+					
+					 <div class="col-sm-4">
+					 <progressbar  data-ng-hide="ceca" class="progress-striped active" max="200" 
+					 value="166" type="danger"><i>Wait a few seconds please</i></progressbar>
+					 </div>
+					
+					<form data-ng-show="ceca" id="formularioEnvio" method="post" action="#"  action="{{ceca.form.url}}">
+						<div>
+							<input type="hidden" name="MerchantID" value="{{ceca.MerchantID}}"/>
+							<input type="hidden" name="AcquirerBIN" value="{{'ceca.AcquirerBIN'}}"/>
+							<input type="hidden" name="TerminalID" value="{{'ceca.TerminalID'}}"/>
+							<input type="hidden" name="Num_operacion" value="{{'ceca.Num_operacion'}}"/>
+							<input type="hidden" name="Importe" value="{{'ceca.Importe'}}"/>
+							<input type="hidden" name="TipoMoneda" value="{{'ceca.TipoMoneda'}}"/>
+							<input type="hidden" name="Exponente" value="{{'ceca.Exponente'}}"/>
+							<input type="hidden" name="Firma" value="{{'ceca.Firma'}}"/>
+							<input type="hidden" name="Pago_soportado" value="{{'ceca.Pago_soportado'}}" />
+							<input type="hidden" name="Idioma" value="{{'ceca.Idioma'}}" />
+							<input type="hidden" name="Descripcion" value="" />
+							<input type="hidden" name="URL_OK" value="{{'ceca.URL_OK'}}" />
+							<input type="hidden" name="URL_NOK" value="{{'ceca.URL_KO'}}" />
+							<input type="hidden" name="Cifrado" value="SHA1" />	
+							<input type="submit" class="btn btn-primary" value="Continue" />
+						</div> 
+					</form>
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal"
+							data-ng-click="">
+							<span class="glyphicon glyphicon-ban-circle"></span> Cancel
+						</button>
+					</div>
+			</div>
+		</div>
+	</div>
