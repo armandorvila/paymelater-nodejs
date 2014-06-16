@@ -2,7 +2,6 @@
 
 var express = require('express');
 var models = require('./lib/models');
-var metrics = require('metrics');
 
 
 /**
